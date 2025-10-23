@@ -1,2 +1,3 @@
-genomes/*
-proteome_sigs/*
+data/raw_proteomes/*
+data/proteome_sigs/*
+data/OldStuff/*
