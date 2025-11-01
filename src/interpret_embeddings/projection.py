@@ -5,13 +5,16 @@ import umap
 import umap.plot
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("data/processed_data/genome_embeddings.emb", header=None).to_numpy()[0:5]
+
+
+data, labels, id_to_name = np.load('data/processed_data/genome_embeddings.npz').values()
+
+genome_lookup_table = pd.read_csv('data/raw_proteomes/ncbi_dataset/data/data_summary.tsv', sep='\t')
+id_to_taxid = dict(zip(genome_lookup_table['Assembly Accession'], genome_lookup_table['Taxonomy id']))
+
+
 
 mapper = umap.UMAP().fit(data)
-
-labels = pd.read_csv("data/processed_data/signature_distance_table.csv").columns[1:6].to_numpy()
-
-
-umap.plot.points(mapper, labels=labels)
+umap.plot.points(mapper, labels=id_to_name)
 
 plt.show()

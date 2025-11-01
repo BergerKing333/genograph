@@ -20,7 +20,7 @@ dist_matrix = sourmash.compare.compare_all_pairs(sigs, ignore_abundance=True)
 
 df = pd.DataFrame(dist_matrix, index=[sig.name for sig in sigs], columns=[sig.name for sig in sigs])
 
-np.savez('signature_distance_matrix.npz', data=dist_matrix, sig_names=[sig.name for sig in sigs])
+np.savez('signature_distance_table.npz', data=dist_matrix, sig_names=[sig.name for sig in sigs])
 
 df.index = [id_to_name.get(sig.name, sig.name) for sig in sigs]
 df.columns = [id_to_name.get(sig.name, sig.name) for sig in sigs]
