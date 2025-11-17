@@ -2,3 +2,5 @@ data/raw_proteomes/*
 data/proteome_sigs/*
 data/OldStuff/*
 data/taxonomy/*.dmp
+tmp/*
+short/*
